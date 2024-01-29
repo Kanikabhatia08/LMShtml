@@ -6,6 +6,13 @@
     <title>Ecommerce</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="script.js"></script>
+    <style>
+        .move-up:hover {
+      transform: translateY(-10px); /* Adjust the value based on how much you want it to move upwards */
+    }
+    </style>
     <script>
         tailwind.config = {
             theme: {
@@ -18,6 +25,7 @@
                     orange: '#FF782D',
                     gray: '#555555',
                     lightgray: '#EAEAEA',
+                    footer: '#F5F5F5',
                 },
                 fontWeight: {
                     med: '550',
@@ -29,54 +37,63 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400&display=swap');
-        </style>
+        
+    </style>
 </head>
 <body>
     <div class="font-exo">
         <!-- Navbar -->
-        <nav class="flex gap-9 max-w-[80%] mx-auto justify-between items-center  text-lg py-2">
-            
-            <div>
-                <img src="./images/LOGO.jpg">
+        <nav class="flex lg:flex-row lg:justify-between lg:items-center max-w-[80%] mx-auto text-lg py-2">
+            <div class="">
+                <img src="./images/LOGO.jpg" class="img-fluid" alt="Logo">
             </div>
 
-            <div>
-                <ul type="none" class="flex gap-8 ">
-                    <li class="hover:text-orange">Home</li>
-                    <li class="hover:text-orange">Courses</li>
-                    <li class="hover:text-orange">Blog</li>
-                    <li class="hover:text-orange">Page</li>
-                    <li class="hover:text-orange">LearnPress Add-On</li>
-                    <li class="hover:text-orange">Premium Theme</li>
+            <div class="sm:hidden xl:flex xl:text-lg">
+                <ul class="flex gap-8">
+                    <li><a href="index.html" class="hover:no-underline hover:text-orange cursor-pointer">Home</a></li>
+                    <li><a href="#" class="hover:text-orange">Courses</a></li>
+                    <li><a href="#" class="hover:text-orange">Blog</a></li>
+                    <li><a href="#" class="hover:text-orange">Page</a></li>
+                    <li><a href="#" class="hover:text-orange">LearnPress Add-On</a></li>
+                    <li><a href="#" class="hover:text-orange">Premium Theme</a></li>
                 </ul>
             </div>
-
-            <div class="flex gap-2">
-                <p class="py-[13px] hover:text-orange">Login / Register</p>
-                <img src="./images/Search.png">
+        
+            <div class="sm:hidden xl:flex gap-2">
+                <a href="login.html" class="py-[13px] hover:text-orange hover:no-underline">Login / Register</a>
+                <img src="./images/Search.png" alt="Search Icon">
             </div>
+
+            <div class="xl:hidden">
+
+
+            </div>
+        
+            
         </nav>
+        
 
         <!-- Hero Banner -->
-        <div class="flex">
+        <section class="flex">
 
             <div class="relative">
-                <img src="./images/Hero.png">
+                <img src="./images/Hero.png" class="w-screen">
             </div>
 
-            <div class="absolute max-w-[30%] left-[12%] top-[32%] text-left" >
-                <h1 class="font-medium text-6xl">Build Skills With Online Course</h1>
-                <p class="text-gray py-9 text-xl">We denounce with righteous indignation and dislike men who are so beguiled and demoralized that cannot trouble.</p>
-                <button class="text-white bg-orange rounded-full text-xl py-3 px-4">Posts Comment</button>
+            <div class="absolute md:max-w-[30%] xl:max-w-[35%] left-[12%] md:top-[28%] xl:top-[32%] text-left" >
+                <h1 class="font-medium md:text-3xl xl:text-6xl">Build Skills With Online Course</h1>
+                <p class="text-gray md:py-6 xl:py-9 lg:text-base xl:text-xl">We denounce with righteous indignation and dislike men who are so beguiled and demoralized that cannot trouble.</p>
+                <button class="text-white bg-orange rounded-full md:text-base xl:text-xl py-3 px-4">Posts Comment</button>
             </div>
 
-        </div>
+        </section>
+        
 
         <!-- Top Categories -->
-        <div class="m-14">
-            <div class="flex max-w-[72%] justify-between mx-auto ">
+        <section class="m-14">
+            <div class="flex max-w-[75%] justify-between mx-auto ">
                 <div>
-                    <h2 class="text-3xl">Top Categories</h2>
+                    <h2 class="lg:text-3xl">Top Categories</h2>
                     <p class="text-gray py-2">Explore our Popular Categories</p>
                 </div>
                 <div>
@@ -84,59 +101,58 @@
                 </div>
             </div>
             <!-- grid -->
-            <div class="max-w-[70%] justify-between mx-auto">
-                <div class="row gap-4 mt-4">
-                    <div class="col justify-center text-center border-lightgray py-20 px-10 border-[1px] rounded-2xl hover:text-orange hover:shadow-md ">
-                        <img src="./images/Art.png" class="w-[20%] mx-auto  py-2">
-                        <h3 class="font-medium text-xl">Art & Design</h3>
+            <div class="max-w-[75%] mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mt-4 text-center">
+                    <div class="col hover:transition-transform transform move-up justify-center  mx-auto items-center text-center border-lightgray xl:py-16 xl:px-6 border-[1px] py-20 p-10 rounded-2xl hover:text-orange hover:shadow-xl ">
+                        <img src="./images/Art.png" class=" mx-auto  py-2">
+                        <h3 class="font-medium xl:text-lg">Art & Design</h3>
                         <p class="font-light text-gray">38 Courses</p>
                     </div>
-                    <div class="col justify-center  mx-auto items-center text-center border-lightgray border-[1px] py-20 p-10 rounded-2xl hover:text-orange hover:shadow-md ">
-                        <img src="./images/Dev 2.png" class="w-[20%] mx-auto  py-2">
-                        <h3 class="font-medium text-xl">Development</h3>
+                    <div class="col hover:transition-transform transform move-up justify-center  mx-auto items-center text-center border-lightgray xl:py-16 xl:px-6 border-[1px] py-20 p-10 rounded-2xl hover:text-orange hover:shadow-xl ">
+                        <img src="./images/Dev 2.png" class=" mx-auto  py-2">
+                        <h3 class="font-medium xl:text-lg">Development</h3>
                         <p class="font-light text-gray">38 Courses</p>
                     </div>
-                    <div class="col justify-center  mx-auto items-center text-center border-lightgray border-[1px] py-20 p-10  rounded-2xl hover:text-orange hover:shadow-md ">
-                        <img src="./images/com.png" class="w-[20%] mx-auto  py-2">
-                        <h3 class="font-medium text-xl">Communication</h3>
+                    <div class="col hover:transition-transform transform move-up justify-center  mx-auto items-center text-center border-lightgray xl:py-16 xl:px-6 border-[1px] py-20 p-10  rounded-2xl hover:text-orange hover:shadow-xl ">
+                        <img src="./images/com.png" class=" mx-auto  py-2">
+                        <h3 class="font-medium text-xl">Commute</h3>
                         <p class="font-light text-gray">38 Courses</p>
                     </div>
-                    <div class="col justify-center  mx-auto items-center text-center border-lightgray border-[1px] py-20 p-10  rounded-2xl hover:text-orange hover:shadow-md ">
-                        <img src="./images/Vid.png" class="w-[20%] mx-auto  py-2">
+                    <div class="col hover:transition-transform transform move-up justify-center  mx-auto items-center text-center border-lightgray xl:py-16 xl:px-6 border-[1px] py-20 p-10  rounded-2xl hover:text-orange hover:shadow-xl ">
+                        <img src="./images/Vid.png" class=" mx-auto  py-2">
                         <h3 class="font-medium text-xl">Videography</h3>
                         <p class="font-light text-gray">38 Courses</p>
                     </div>
-                    <div class="col justify-center  mx-auto items-center text-center border-lightgray border-[1px] py-20 p-10  rounded-2xl hover:text-orange hover:shadow-md ">
-                        <img src="./images/Photo.png" class="w-[20%] mx-auto  py-2">
-                        <h3 class="font-medium text-xl">Photography</h3>
+                    <div class="col hover:transition-transform transform move-up justify-center  mx-auto items-center text-center border-lightgray xl:py-16 xl:px-6 border-[1px] py-20 p-10  rounded-2xl hover:text-orange hover:shadow-xl ">
+                        <img src="./images/Photo.png" class=" mx-auto  py-2">
+                        <h3 class="font-medium text-xl">Photography</h3> 
                         <p class="font-light text-gray">38 Courses</p>
                     </div>
 
-                </div>
-                <div class="row gap-4 mt-4">
-                    <div class="col  justify-center  mx-auto items-center text-center border-lightgray border-[1px] py-20 p-10 rounded-2xl hover:text-orange hover:shadow-md ">
-                        <img src="./images/Market.png" class="w-[20%] mx-auto  py-2">
+                
+                    <div class="col hover:transition-transform transform move-up justify-center  mx-auto items-center text-center border-lightgray xl:py-16 xl:px-6 border-[1px] py-20 p-10 rounded-2xl hover:text-orange hover:shadow-xl ">
+                        <img src="./images/Market.png" class=" mx-auto  py-2">
                         <h3 class="font-medium text-xl">Marketing</h3>
                         <p class="font-light text-gray">38 Courses</p>
                     </div>
-                    <div class="col justify-center  mx-auto items-center text-center border-lightgray border-[1px] py-20 p-10  rounded-2xl hover:text-orange hover:shadow-md ">
-                        <img src="./images/Content.png" class="w-[20%] mx-auto  py-2">
+                    <div class="col hover:transition-transform transform move-up justify-center  mx-auto items-center text-center border-lightgray xl:py-16 xl:px-6 border-[1px] py-20 p-10  rounded-2xl hover:text-orange hover:shadow-xl ">
+                        <img src="./images/Content.png" class="mx-auto  py-2">
                         <h3 class="font-medium text-xl">Content Writing</h3>
                         <p class="font-light text-gray">38 Courses</p>
                     </div>
-                    <div class="col justify-center  mx-auto items-center text-center border-lightgray border-[1px] py-20 p-10 rounded-2xl hover:text-orange hover:shadow-md ">
-                        <img src="./images/Finance.png" class="w-[20%] mx-auto  py-2">
+                    <div class="col hover:transition-transform transform move-up justify-center  mx-auto items-center text-center border-lightgray xl:py-16 xl:px-6 border-[1px] py-20 p-10 rounded-2xl hover:text-orange hover:shadow-xl ">
+                        <img src="./images/Finance.png" class=" mx-auto  py-2">
                         <h3 class="font-medium text-xl">Finance</h3>
                         <p class="font-light text-gray">38 Courses</p>
                     </div>
-                    <div class="col justify-center  mx-auto items-center text-center border-lightgray border-[1px] py-20 p-10 rounded-2xl hover:text-orange hover:shadow-md ">
-                        <img src="./images/Science.png" class="w-[20%] mx-auto  py-2">
+                    <div class="col hover:transition-transform transform move-up justify-center  mx-auto items-center text-center border-lightgray xl:py-16 xl:px-6 border-[1px] py-20 p-10 rounded-2xl hover:text-orange hover:shadow-xl ">
+                        <img src="./images/Science.png" class=" mx-auto  py-2">
                         <h3 class="font-medium text-xl">Science</h3>
                         <p class="font-light text-gray">38 Courses</p>
                     </div>
                     
-                    <div class="col justify-center  mx-auto items-center text-center border-lightgray border-[1px] py-20 p-10 rounded-2xl hover:text-orange hover:shadow-md ">
-                        <img src="./images/Art.png" class="w-[20%] mx-auto  py-2">
+                    <div class="col hover:transition-transform transform move-up justify-center  mx-auto items-center text-center border-lightgray xl:py-16 xl:px-6 border-[1px] py-20 p-10 rounded-2xl hover:text-orange hover:shadow-xl ">
+                        <img src="./images/Art.png" class="mx-auto  py-2">
                         <h3 class="font-medium text-xl">Network</h3>
                         <p class="font-light text-gray">38 Courses</p>
                     </div>
@@ -144,14 +160,14 @@
                 </div>
 
             </div>
-        </div>
+        </section>
 
             <!-- Featured -->
 
             <div class="m-14">
-                <div class="flex max-w-[72%] justify-between mx-auto ">
+                <div class="flex max-w-[75%] justify-between mx-auto ">
                     <div>
-                        <h2 class="text-3xl">Featured Courses</h2>
+                        <h2 class="lg:text-3xl">Featured Courses</h2>
                         <p class="text-gray py-2">Explore our Popular Courses</p>
                     </div>
                     <div>
@@ -159,136 +175,136 @@
                     </div>
                 </div>
                 <!-- grid -->
-                <div class="max-w-[72%] mx-auto justify-center">
-                    <div class="row gap-5">
-                        <div class="col border-2 border-lightgray my-4 rounded-3xl hover:shadow-md">
+                <div class="max-w-[75%] mx-auto justify-center">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <div class="col border-2 border-lightgray my-10 2xl:my-4 rounded-2xl 2xl:rounded-3xl hover:shadow-xl hover:transition-transform transform move-up">
                             <div>
-                                <img src="./images/Img1.png" class="scale-[107%] mt-[10px]">
+                                <img src="./images/Img1.png" class="scale-[116%] sm:scale-[115%] lg:scale-[118%] xl:scale-[112%] 2xl:scale-[107%] mt-[9px]">
                             </div>
-                            <div class="max-w-[80%] m-3">
+                            <div class="xl:max-w-[90%] 2xl:max-w-[80%] mt-3 2xl:m-3">
                                 <p class="text-gray">by <span class="text-black">Determined-Poitras</span></p>
                                 <h3 class="text-xl font-semibold py-2">Create an LMS Website with LearnPress</h3>
-                                <div class="flex gap-8 py-2">
-                                    <p class="flex gap-2"><img src="./images/Clock.png" class=" h-[16px] mt-1">2 Weeks </p>
-                                    <p class="flex gap-3"><img src="./images/Hat.png"> 156 Students </p>
+                                <div class="flex flex-col 2xl:flex-row lg:gap-3 2xl:gap-8 py-2">
+                                    <p class="flex gap-3"><img src="./images/Clock.png" class="sm:h-4 lg:h-[16px] mt-1">2 Weeks </p>
+                                    <p class="flex gap-3"><img src="./images/Hat.png" class="sm:h-5 lg:h-[20px]"> 156 Students </p>
                                 </div>
                             </div>
                             <div>
                                 <hr class="">
-                                <div class="flex justify-between max-w-[90%] m-2">
+                                <div class="flex justify-between max-w-[90%] m-3">
                                     <p class="text-lg text-green-600">Free</p>
                                     <p class="text-lg">View More</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col border-2 border-lightgray my-4 rounded-3xl hover:shadow-md">
+                        <div class="col border-2 border-lightgray my-10 2xl:my-4 rounded-2xl 2xl:rounded-3xl hover:shadow-xl hover:transition-transform transform move-up">
                             <div>
-                                <img src="./images/Img2.png" class="scale-[107%] mt-[10px]">
+                                <img src="./images/Img2.png" class="scale-[116%] sm:scale-[115%] lg:scale-[118%] xl:scale-[112%] 2xl:scale-[107%] mt-[9px]">
                             </div>
-                            <div class="max-w-[80%] m-3">
+                            <div class="xl:max-w-[90%] 2xl:max-w-[80%] mt-3 2xl:m-3">
                                 <p class="text-gray">by <span class="text-black">Determined-Poitras</span></p>
                                 <h3 class="text-xl font-semibold py-2">Create an LMS Website with LearnPress</h3>
-                                <div class="flex gap-8 py-2">
-                                    <p class="flex gap-2"><img src="./images/Clock.png" class=" h-[16px] mt-1">2 Weeks </p>
-                                    <p class="flex gap-3"><img src="./images/Hat.png"> 156 Students </p>
+                                <div class="flex flex-col 2xl:flex-row lg:gap-3 2xl:gap-8 py-2">
+                                    <p class="flex gap-3"><img src="./images/Clock.png" class="sm:h-4 lg:h-[16px] mt-1">2 Weeks </p>
+                                    <p class="flex gap-3"><img src="./images/Hat.png" class="sm:h-5 lg:h-[20px]"> 156 Students </p>
                                 </div>
                             </div>
                             <div>
                                 <hr class="">
-                                <div class="flex justify-between max-w-[90%] m-2">
-                                    <p class="text-lg text-green-600">$49.0</p>
+                                <div class="flex justify-between max-w-[90%] m-3">
+                                    <p class="text-lg text-green-600">Free</p>
                                     <p class="text-lg">View More</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col border-2 border-lightgray my-4 rounded-3xl hover:shadow-md">
+                        <div class="col border-2 border-lightgray my-10 2xl:my-4 rounded-2xl 2xl:rounded-3xl hover:shadow-xl hover:transition-transform transform move-up">
                             <div>
-                                <img src="./images/Img3.png" class="scale-[107%] mt-[10px]">
+                                <img src="./images/Img3.png" class="scale-[116%] sm:scale-[115%] lg:scale-[118%] xl:scale-[112%] 2xl:scale-[107%] mt-[9px]">
                             </div>
-                            <div class="max-w-[80%] m-3">
+                            <div class="xl:max-w-[90%] 2xl:max-w-[80%] mt-3 2xl:m-3">
                                 <p class="text-gray">by <span class="text-black">Determined-Poitras</span></p>
                                 <h3 class="text-xl font-semibold py-2">Create an LMS Website with LearnPress</h3>
-                                <div class="flex gap-8 py-2">
-                                    <p class="flex gap-2"><img src="./images/Clock.png" class=" h-[16px] mt-1">2 Weeks </p>
-                                    <p class="flex gap-3"><img src="./images/Hat.png"> 156 Students </p>
+                                <div class="flex flex-col 2xl:flex-row lg:gap-3 2xl:gap-8 py-2">
+                                    <p class="flex gap-3"><img src="./images/Clock.png" class="sm:h-4 lg:h-[16px] mt-1">2 Weeks </p>
+                                    <p class="flex gap-3"><img src="./images/Hat.png" class="sm:h-5 lg:h-[20px]"> 156 Students </p>
                                 </div>
                             </div>
                             <div>
                                 <hr class="">
-                                <div class="flex justify-between max-w-[90%] m-2">
-                                    <p class="text-lg text-green-600">Free</p>
+                                <div class="flex justify-between max-w-[90%] m-3">
+                                    <p class="text-lg text-green-600">$43.0</p>
                                     <p class="text-lg">View More</p>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <div class="row gap-6">
-                        <div class="col border-2 border-lightgray my-4 rounded-3xl hover:shadow-md">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <div class="col border-2 border-lightgray my-10 2xl:my-4 rounded-2xl 2xl:rounded-3xl hover:shadow-xl hover:transition-transform transform move-up">
                             <div>
-                                <img src="./images/Img4.png" class="scale-[107%] mt-[10px]">
+                                <img src="./images/Img4.png" class="scale-[116%] sm:scale-[115%] lg:scale-[118%] xl:scale-[112%] 2xl:scale-[107%] mt-[9px]">
                             </div>
-                            <div class="max-w-[80%] m-3">
+                            <div class="xl:max-w-[90%] 2xl:max-w-[80%] mt-3 2xl:m-3">
                                 <p class="text-gray">by <span class="text-black">Determined-Poitras</span></p>
                                 <h3 class="text-xl font-semibold py-2">Create an LMS Website with LearnPress</h3>
-                                <div class="flex gap-8 py-2">
-                                    <p class="flex gap-2"><img src="./images/Clock.png" class=" h-[16px] mt-1">2 Weeks </p>
-                                    <p class="flex gap-3"><img src="./images/Hat.png"> 156 Students </p>
+                                <div class="flex flex-col 2xl:flex-row lg:gap-3 2xl:gap-8 py-2">
+                                    <p class="flex gap-3"><img src="./images/Clock.png" class="sm:h-4 lg:h-[16px] mt-1">2 Weeks </p>
+                                    <p class="flex gap-3"><img src="./images/Hat.png" class="sm:h-5 lg:h-[20px]"> 156 Students </p>
                                 </div>
                             </div>
                             <div>
                                 <hr class="">
-                                <div class="flex justify-between max-w-[90%] m-2">
+                                <div class="flex justify-between max-w-[90%] m-3">
                                     <p class="text-lg text-green-600">Free</p>
                                     <p class="text-lg">View More</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col border-2 border-lightgray my-4 rounded-3xl hover:shadow-md">
+                        <div class="col border-2 border-lightgray my-10 2xl:my-4 rounded-2xl 2xl:rounded-3xl hover:shadow-xl hover:transition-transform transform move-up">
                             <div>
-                                <img src="./images/Img5png" class="scale-[107%] mt-[10px]">
+                                <img src="./images/Img5png" class="scale-[116%] sm:scale-[115%] lg:scale-[118%] xl:scale-[112%] 2xl:scale-[107%] mt-[9px]">
                             </div>
-                            <div class="max-w-[80%] m-3">
+                            <div class="xl:max-w-[90%] 2xl:max-w-[80%] mt-3 2xl:m-3">
                                 <p class="text-gray">by <span class="text-black">Determined-Poitras</span></p>
                                 <h3 class="text-xl font-semibold py-2">Create an LMS Website with LearnPress</h3>
-                                <div class="flex gap-8 py-2">
-                                    <p class="flex gap-2"><img src="./images/Clock.png" class=" h-[16px] mt-1">2 Weeks </p>
-                                    <p class="flex gap-3"><img src="./images/Hat.png"> 156 Students </p>
+                                <div class="flex flex-col 2xl:flex-row lg:gap-3 2xl:gap-8 py-2">
+                                    <p class="flex gap-3"><img src="./images/Clock.png" class="sm:h-4 lg:h-[16px] mt-1">2 Weeks </p>
+                                    <p class="flex gap-3"><img src="./images/Hat.png" class="sm:h-5 lg:h-[20px]"> 156 Students </p>
                                 </div>
                             </div>
                             <div>
                                 <hr class="">
-                                <div class="flex justify-between max-w-[90%] m-2">
+                                <div class="flex justify-between max-w-[90%] m-3">
+                                    <p class="text-lg text-green-600">$49.0</p>
+                                    <p class="text-lg">View More</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col border-2 border-lightgray my-10 2xl:my-4 rounded-2xl 2xl:rounded-3xl hover:shadow-xl hover:transition-transform transform move-up">
+                            <div>
+                                <img src="./images/Img6.png" class="scale-[116%] sm:scale-[115%] lg:scale-[118%] xl:scale-[112%] 2xl:scale-[107%] mt-[9px]">
+                            </div>
+                            <div class="xl:max-w-[90%] 2xl:max-w-[80%] mt-3 2xl:m-3">
+                                <p class="text-gray">by <span class="text-black">Determined-Poitras</span></p>
+                                <h3 class="text-xl font-semibold py-2">Create an LMS Website with LearnPress</h3>
+                                <div class="flex flex-col 2xl:flex-row lg:gap-3 2xl:gap-8 py-2">
+                                    <p class="flex gap-3"><img src="./images/Clock.png" class="sm:h-4 lg:h-[16px] mt-1">2 Weeks </p>
+                                    <p class="flex gap-3"><img src="./images/Hat.png" class="sm:h-5 lg:h-[20px]"> 156 Students </p>
+                                </div>
+                            </div>
+                            <div>
+                                <hr class="">
+                                <div class="flex justify-between max-w-[90%] m-3">
                                     <p class="text-lg text-green-600">Free</p>
                                     <p class="text-lg">View More</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col border-2 border-lightgray my-4 rounded-3xl hover:shadow-md">
-                            <div>
-                                <img src="./images/Img6.png" class="scale-[107%] mt-[10px]">
-                            </div>
-                            <div class="max-w-[80%] m-3">
-                                <p class="text-gray">by <span class="text-black">Determined-Poitras</span></p>
-                                <h3 class="text-xl font-semibold py-2">Create an LMS Website with LearnPress</h3>
-                                <div class="flex gap-8 py-2">
-                                    <p class="flex gap-2"><img src="./images/Clock.png" class=" h-[16px] mt-1">2 Weeks </p>
-                                    <p class="flex gap-3"><img src="./images/Hat.png"> 156 Students </p>
-                                </div>
-                            </div>
-                            <div>
-                                <hr class="">
-                                <div class="flex justify-between max-w-[90%] m-2">
-                                    <p class="text-lg text-green-600">Free</p>
-                                    <p class="text-lg">View More</p>
-                                </div>
-                            </div>
-                        </div>
-                        
                     </div>
 
                     
@@ -296,39 +312,39 @@
             </div>
 
             <!-- Add on -->
-            <div class="flex mx-auto justify-center">
+            <div class="flex max-w-11 lg:max-w-[75%] mx-auto justify-center">
                 <div class="relative">
                     <img src="./images/Maskgroup.png">
                 </div>
-                <div class="absolute max-w-[25%] left-[16%] m-[3%]">
+                <div class="absolute max-w-[25%] left-[14%] m-[3%]">
                     <h3 class="text-gray text-xl">GET MORE POWER FROM</h3>
                     <h1 class="text-3xl font-[590] py-2">LearnPress Add-Ons</h1>
-                    <p class=" text-gray text-lg py-3 ">The next level of LearnPress - LMS WordPress Plugin. More Powerful, Flexible and Magical Inside.</p>
-                    <button class="rounded-full  px-4 py-3 text-white bg-orange border-none">Explore Course</button>
+                    <p class="sm:hidden 2xl:block text-gray py-3 ">The next level of LearnPress - LMS WordPress Plugin. More Powerful, Flexible and Magical Inside.</p>
+                    <button class="rounded-full sm:mt-8 2xl-mt-0 px-4 py-3 text-white bg-orange border-none">Explore Course</button>
                     
                 </div>
             </div>
 
             <!-- stats grid-->
-            <div class="max-w-[66%] mt-14 justify-center mx-auto">
-                <div class="row gap-5">
+            <div class="max-w-[75%] mt-14 justify-center mx-auto">
+                <div class=" row gap-5">
                     <div class="col bg-[#F5F5F5] rounded-2xl text-center py-14 p-9">
-                        <h1 class="text-4xl font-bold text-orange">25K+</h1>
+                        <h1  class="text-4xl font-bold text-orange"><span id="counter" data-value="30"></span>K+</h1>
                         <p class="py-3 text-xl font-semibold">Active Students</p>
                     </div>
 
-                    <div class="col bg-[#F5F5F5] rounded-2xl text-center py-14 p-9">
-                        <h1 class="text-4xl font-bold text-orange">899</h1>
+                    <div  class="col bg-[#F5F5F5] rounded-2xl text-center py-14 p-9">
+                        <h1 id="counter" data-value="500" class="text-4xl font-bold text-orange">0</h1>
                         <p class="py-3 text-xl font-semibold">Total Courses</p>
                     </div>
 
                     <div class="col bg-[#F5F5F5] rounded-2xl text-center py-14 p-9">
-                        <h1 class="text-4xl font-bold text-orange">158</h1>
+                        <h1 id="counter" data-value="158" class="text-4xl font-bold text-orange">0</h1>
                         <p class="py-3 text-xl font-semibold">Instructors</p>
                     </div>
 
                     <div class="col bg-[#F5F5F5] rounded-2xl text-center py-14 p-9">
-                        <h1 class="text-4xl font-bold text-orange">100%</h1>
+                        <h1 class="text-4xl font-bold text-orange"><span id="counter" data-value="100" ></span>%</h1>
                         <p class="py-3 text-xl font-semibold">Satisfaction Rate</p>
                     </div>
                 </div>
@@ -336,18 +352,18 @@
             </div>
 
             <!-- grow skill -->
-            <div class="max-w-[72%] flex gap-20 mx-auto justify-center my-40">
-                <div class="max-w-[50%]">
+            <div class="max-w-[75%] flex gap-20 mx-auto justify-center my-40">
+                <div class="xl:max-w-[65%]">
                     <img src="./images/Grow.png">
                 </div>
-                <div class="max-w-[40%]">
-                    <h1 class="max-w-[70%] font-semibold text-4xl">Grow Us Your Skill With LearnPress LMS</h1>
-                    <p class="py-3 text-gray text-xl font-jost">We denounce with righteous indignation and dislike men who are so beguiled and demoralized that cannot trouble.</p>
-                    <ul class="font-jost ">
-                        <li class="flex gap-2 m-3 text-xl"><img src="./images/Tick.png">Certification</li>
-                        <li class="flex gap-2 m-3 text-xl"><img src="./images/Tick.png">Certification</li>
-                        <li class="flex gap-2 m-3 text-xl"><img src="./images/Tick.png">Certification</li>
-                        <li class="flex gap-2 m-3 text-xl"><img src="./images/Tick.png">Certification</li>
+                <div class="max-w-[30%]">
+                    <h1 class="xl:max-w-[85%] font-semibold lg:text-2xl 2xl:text-4xl">Grow Us Your Skill With LearnPress LMS</h1>
+                    <p class="py-3 text-gray 2xl:text-xl font-jost">We denounce with righteous indignation and dislike men who are so beguiled and demoralized that cannot trouble.</p>
+                    <ul class="font-jost 2xl:text-lg">
+                        <li class="flex gap-2 m-3"><img src="./images/Tick.png">Certification</li>
+                        <li class="flex gap-2 m-3"><img src="./images/Tick.png">Certification</li>
+                        <li class="flex gap-2 m-3"><img src="./images/Tick.png">Certification</li>
+                        <li class="flex gap-2 m-3"><img src="./images/Tick.png">Certification</li>
                     </ul>
                     <button class="rounded-full mt-4 text-xl px-4 py-3 text-white bg-orange border-none">Explore Courses</button>
 
@@ -355,21 +371,21 @@
             </div>
 
             <!-- Add on 2 -->
-            <div class="flex mx-auto justify-center m-20">
+            <div class="flex max-w-[75%] mx-auto justify-center m-20">
                 <div class="relative">
                     <img src="./images/Maskgroup2.png">
                 </div>
-                <div class="absolute max-w-[35%] text-center mt-16">
+                <div class="absolute max-w-[45%] text-center lg:mt-8 2xl:mt-14">
                     <h3 class=" text-lg font-semibold">PROVIDING AMAZING</h3>
                     <h1 class="text-3xl font-[590] py-2">Education Wordpress Theme</h1>
-                    <p class=" text-gray text-lg py-3 ">The next level of LMS WordPress Theme. Learn anytime and anywhere.</p>
-                    <button class="rounded-full text-xl px-4 py-3 text-white bg-orange border-none">Explore Course</button>
+                    <p class=" text-gray lg:text-base 2xl:text-lg py-2 ">The next level of LMS WordPress Theme. Learn anytime and anywhere.</p>
+                    <button class="rounded-full lg:text-base 2xl:text-xl px-4 py-3 text-white bg-orange border-none">Explore Course</button>
                     
                 </div>
             </div>
 
             <!-- Feedbacks -->
-            <div class="max-w-[72%] mx-auto justify-center text-center">
+            <div class="max-w-[75%] mx-auto justify-center text-center">
                 <div>
                     <h1 class="text-3xl font-semibold py-2">Student feedbacks</h1>
                     <h3 class="text-gray font-jost text-xl">What Students Say About Academy LMS</h3>
@@ -401,7 +417,7 @@
                             <img src="./images/Quotes.png">
                             <p class="text-lg py-3">I must explain to you how all this mistaken . Tdea of denouncing pleasure and praising pain was born and I will give you a complete account of the system and expound</p>
                             <h2 class="text-xl font-semibold">Roe Smith</h2>
-                            <p class="text-gray">Designer</p>
+                            <p class="text-gray">Designer</p>   
                         </div>
 
 
@@ -410,29 +426,111 @@
             </div>
 
             <!-- Add on 3 -->
-            <div class="max-w-[70%] justify-center mx-auto rounded-3xl bg-gradient-to-r mt-20 from-[#C7E6F9] to-[#E8D1FE] relative">
-                <div class="z-0">
-                    <img src="./images/Maskgroup3.png" >
+
+            <div class="flex max-w-[69%] rounded-3xl mx-auto justify-center bg-gradient-to-r mt-20 from-[#C7E6F9] to-[#E8D1FE]">
+                <div class="relative">
+                    <img src="./images/Maskgroup3.png">
                 </div>
-                <div class="absolute z-10 flex justify-between items-center w-full h-full">
-                    <div class="flex gap-5">
-                        <img src="./images/student.png">
-                        <h1 class="text-xl">Let's Start With Academy LMS</h1>
+                <div class="absolute flex lg:mt-12 xl:mt-20 xl:gap-40">
+                    <div class="flex">
+                        <img src="./images/student.png" class="lg:w-[19%]">
+                        <h1 class="lg:text-lg 2xl:text-2xl lg:mt-7 mx-3">Let's Start With Academy LMS</h1>
                     </div>
-            
-                    <div>
-                        <button class="rounded-full border-[#9D9D9D] border-2 px-4 py-3 ">I'm A Student</button>
-                        <button class="rounded-full text-xl px-4 py-3 text-white bg-orange border-none">Become An Instructor</button>
+                        <div class="lg:mt-5">
+                        <button class="rounded-full lg:text-sm 2xl:text-xl border-orange text-orange border-2 px-4 py-3 ">I'm A Student</button>
+                        <button class="rounded-full lg:text-sm 2xl:text-xl px-4 py-3 text-white bg-orange border-none">Become An Instructor</button>
                     </div>
                 </div>
             </div>
-            
+
+            <!-- Footer -->
+            <Footer class="bg-footer  mt-14">
+                <div class="row max-w-[70%] mx-auto py-20">
                 
-            </div>
+                    <div class="col-lg-4">
+                        <img src="./images/LOGO.jpg">
+                        <p class="py-10 text-gray font-jost lg:text-base 2xl:text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+
+                    <div class="col ml-9">
+                        <h5 class="text-uppercase text-2xl font-semibold">Get help</h5>
+                        <ul class="py-7 text-gray font-jost lg:text-base 2xl:text-xl leading-10">
+                            <li>
+                                <a href="#!" class="hover:text-orange hover:no-underline">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="hover:text-orange hover:no-underline">Latest Articles</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="hover:text-orange hover:no-underline">FAQ</a>
+                            </li>
+                            
+                        </ul>
+
+                    </div>
+
+                    <div class="col">
+                        <h5 class="text-uppercase text-2xl font-semibold">Programs</h5>
+                        <ul class="py-7 text-gray font-jost lg:text-base 2xl:text-xl leading-10">
+                            <li>
+                                <a href="#!" class="hover:text-orange hover:no-underline">Art & Design</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="hover:text-orange hover:no-underline">Business</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="hover:text-orange hover:no-underline">IT & Software</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="hover:text-orange hover:no-underline">Languages</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="hover:text-orange hover:no-underline">Programming</a>
+                            </li>
+                            
+                        </ul>
+
+                    </div>
+
+                    <div class="col-lg-3">
+                        <h5 class="text-uppercase text-2xl font-semibold">Contact us</h5>
+                        <div class="text-gray font-jost lg:text-base 2xl:text-xl py-7 ">
+                            <p>Address: 2321 New Design Str, Lorem Ipsum10 Hudson Yards, USA</p>
+                        </div>
+                        <div class="text-gray font-jost lg:text-base 2xl:text-xl">
+                            <p>Tel: + (123) 2500-567-8988</p>
+                            <p>Mail: supportlms@gmail.com</p>
+                        </div>
+
+                        <div>
+                            <ul class="flex gap-5 py-4 text-xl text-gray">
+                                <li><i class="fa-brands fa-facebook-f hover:text-orange"></i></li>
+                                <li><i class="fa-brands fa-pinterest-p hover:text-orange"></i></li>
+                                <li><i class="fa-brands fa-x-twitter hover:text-orange"></i></li>
+                                <li><i class="fa-brands fa-square-instagram hover:text-orange"></i></li>
+                                <li><i class="fa-brands fa-youtube hover:text-orange"></i></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- copyright -->
+                <div class="mx-auto justify-center pb-3 text-center text-xl text-gray">
+                    <p>Copyright © 2024 LearnPress LMS | Powered by LearnPress LMS</p>
+
+                </div>
+
+            </Footer>
+
+                
+            
             
 
         
     </div>
+    
     
 </body>
 </html>
