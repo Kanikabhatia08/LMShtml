@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name":" Full Stack Project",
+        "price": 200,
+        "image": "./images/webdev2.jpg"
+    },
+    {
+        "id": 2,
+        "name":" MERN Stack ",
+        "price": 250,
+        "image": "./images/webdev.jpg"
+    },
+    {
+        "id": 3,
+        "name":" One Week JS",
+        "price": 290,
+        "image": "./images/javascript.jpg"
+    },
+    {
+        "id": 4,
+        "name":" PHP & Laravel",
+        "price": 200,
+        "image": "./images/php.jpg"
+    },
+    {
+        "id": 5,
+        "name":" Digital Marketing",
+        "price": 300,
+        "image": "./images/digital.jpg"
+    },
+    {
+        "id": 6,
+        "name":" Testing & QA",
+        "price": 200,
+        "image": "./images/testing.jpg"
+    },
+    {
+        "id": 7,
+        "name":" UI UX Design",
+        "price": 200,
+        "image": "./images/uiux.jpg"
+    },
+    {
+        "id": 8,
+        "name":" Cyber Security",
+        "price": 200,
+        "image": "./images/cyber.jpg"
+    },
+    {
+        "id": 9,
+        "name":" Learn DevOps",
+        "price": 200,
+        "image": "./images/devops.jpg"
+    }
+
+]

@@ -66,18 +66,19 @@
                 <img src="./images/signup.jpg" class="rounded-[80px]">
             </div>
             <form>
-                <div class=" border-[1px] order-1 mt-20 border-lightgray py-16 rounded-2xl p-9 ">
+                <div class=" border-[1px] order-1 mt-20 border-lightgray py-16 rounded-2xl shadow-lg p-9 ">
                     <h1 class="text-3xl font-semibold">Register</h1>
                     <div class="flex-col ">
-                        <input type="email" placeholder="Email*" required class="w-full my-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
-                        <input type="email" placeholder="Username*" required class="w-full  border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
-                        <input type="password" placeholder="Password*" required class="w-full my-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
-                        <input type="password" placeholder="Confirm Password*" required class="w-full mb-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
-                        <input type="number" placeholder="Phone No.*" required class="w-full mb-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
+                        <input type="email" placeholder="Email*"  class="w-full my-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
+                        <input type="text" placeholder="Username*"  class="w-full  border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
+                        <input type="password" name="pass1" placeholder="Password*"  class="w-full my-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
+                        <input type="password" name="pass2" placeholder="Confirm Password*"  class="w-full mb-4 border-[1px] border-lightgray relative z-0 rounded-lg p-2 text-lg max-w-full">
+
+                        <input type="number" placeholder="Phone No.*" class="w-full mb-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
 
                     </div>
-                    <button class="rounded-full py-2 text-xl my-4 text-white bg-orange border-none w-full">Register</button>
-                    <p>Have an account?<a href="login.html" class="text-orange "> Log In</a></p>
+                    <button onclick="validate()" class="rounded-full py-2 text-xl my-4 text-white bg-orange border-none w-full">Register</button>
+                    <p>Have an account?<a href="login.html" class="text-orange hover:text-red-600"> Log In</a></p>
                     </div>
 
             </form>
@@ -90,7 +91,7 @@
             <div class="row max-w-[70%] mx-auto py-20">
             
                 <div class="col-lg-4">
-                    <img src="./images/LOGO.jpg">
+                    <img src="./images/logoFooter.png" class="w-[50%]">
                     <p class="py-10 text-gray font-jost text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
 
@@ -167,6 +168,39 @@
         </Footer>
 
     </div>
+    <script>
+        function validate(){
+            var username = document.getElementById("username").value;
+            var firstpassword=document.f1.pass1.value;  
+            var secondpassword=document.f1.pass2.value;  
+
+            
+            if(username == null || username == ""){
+                alert("Please enter username");
+                return false;
+            }
+            else if(password == null || password == ""){
+                alert("Please enter password");
+                return false;
+            }
+            else if(password.length<8){
+                alert("Password must be at least 8 characters long.");
+            }
+            if(firstpassword==secondpassword){  
+                return true;  
+            }  
+            else if(firstpassword!=secondpassword){  
+                alert("password must be same!");  
+                return false;  
+            }   
+            else{
+                alert("Signup successful");
+                window.location.href = "index.html";
+                return true;
+            }
+        }
+
+    </script>
     
 </body>
 </html>
