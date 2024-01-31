@@ -54,7 +54,7 @@
                 </ul>
             </div>
         
-            <div class="sm:hidden xl:flex gap-2">
+            <div class="tog sm:hidden xl:flex gap-2">
                 <a href="login.html" class="py-[13px] hover:text-orange hover:no-underline cursor-pointer">Login / Register</a>
                 <img src="./images/Search.png" alt="Search Icon">
             </div>
@@ -71,25 +71,22 @@
             <div class="max-w-[50%]">
                 <img src="./images/login.jpg">
             </div>
-            <form method="post" action="index.html" name="loginForm">
+            <form onsubmit="return false">
                 <div class=" border-[1px] mt-36 border-lightgray rounded-2xl p-9 shadow-lg">
                     <h1 class="text-3xl font-semibold">Login</h1>
                     <div class="flex-col ">
                         <input type="email" id="username" placeholder="Email or Username*"  class="w-full my-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
-                        <input type="password" id="pass" placeholder="Password* "  class="w-full mb-4 border-[1px] border-lightgray rounded-lg p-2 relative z-0 text-lg max-w-full">
+                        <input type="text" id="pass" placeholder="Password* "  class="w-full mb-4 border-[1px] border-lightgray rounded-lg p-2 relative z-0 text-lg max-w-full">
                         <span class="error-message"></span>
 
-                        <input type="checkbox"> Remember Me                        
+                        <input type="checkbox" id="rememberMe"> Remember Me                        
                     </div>
-                    <button type="submit" onclick="validate(e)" class="button rounded-full py-2 text-xl my-4 text-white bg-orange border-none w-full">Login</button>
+                    <input type="submit" onclick="check()" value="Login" class="button rounded-full py-2 text-xl my-4 text-white bg-orange border-none w-full">
                     <p>Don't have an account?<a href="signup.html" class="text-orange hover:text-red-600"> Sign Up</a></p>
                     </div>
 
             </form>
         </section>
-
-        
-
 
         <Footer class="bg-footer  mt-14">
             <div class="row max-w-[70%] mx-auto py-20">
@@ -174,29 +171,39 @@
     </div>
 
     <script>
-        function validate(e) {
-            e.preventDefault();
-            var username = document.getElementById('username');
-            var password = document.getElementById('pass');
-            var errorMessage = document.getElementById('error-message');
-            console.log(username.value);
-            console.log(password.value);
-            errorMessage.innerHTML = '';
+        function check(){
 
-            if (username.value.trim() === '' || password.value.trim() === '') {
-                errorMessage.innerHTML = 'Please enter both username and password.';
-                return false; 
+            var userName = document.getElementById('username').value;
+            var userPw = document.getElementById('pass').value;
+            console.log(userName);
+            console.log(userPw);
+            
+            var storedName = localStorage.getItem('mail');
+            var storedPw = localStorage.getItem('pass1');
+
+            if(username.length == 0){
+                alert('Please fill in email');
+
+            }else if(pass.length == 0 ){
+                alert('Please fill in password');
+
+            }else{
+                let stored_users = JSON.parse(localStorage.getItem('users')) //fetching stored users
+                if(stored_users) {
+                    for (let u = 0; u < stored_users.length; u++){ //finding match
+                        if (userName == stored_users[u].mail && userPw == stored_users[u].password) {
+                            alert('You are logged in ' + userName);
+                            return location.replace("./index.html")
+                        }
+                    }
+                } else {
+                localStorage.setItem('users', '[]');
+                }
+
+                return alert('Access denied. Valid username and password is required.');
             }
 
-            if (password.value.length < 8 || password.value.length > 20) {
-                errorMessage.innerHTML = 'Password should be between 8 and 20 characters.';
-                return false; 
-            }
-
-
-            return true; 
 }
-
 
     </script>
     
