@@ -6,7 +6,8 @@
     <title>Signup</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js"></script>
+
+    
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600&display=swap');
@@ -45,19 +46,19 @@
             <div class="sm:hidden xl:flex xl:text-lg">
                 <ul class="flex gap-8">
                     <li><a href="index.html" class="hover:no-underline hover:text-orange cursor-pointer">Home</a></li>
-                    <li><a href="#" class="hover:text-orange">Courses</a></li>
-                    <li><a href="#" class="hover:text-orange">Blog</a></li>
-                    <li><a href="#" class="hover:text-orange">Page</a></li>
-                    <li><a href="#" class="hover:text-orange">LearnPress Add-On</a></li>
-                    <li><a href="#" class="hover:text-orange">Premium Theme</a></li>
+                    <li><a href="Courses.html" class="hover:text-orange hover:no-underline cursor-pointer">Courses</a></li>
+                    <li><a href="#" class="hover:text-orange hover:no-underline cursor-pointer">Blog</a></li>
+                    <li><a href="#" class="hover:text-orange hover:no-underline cursor-pointer">Page</a></li>
+                    <li><a href="#" class="hover:text-orange hover:no-underline cursor-pointer">LearnPress Add-On</a></li>
+                    <li><a href="#" class="hover:text-orange hover:no-underline cursor-pointer">Premium Theme</a></li>
                 </ul>
             </div>
         
             <div class="sm:hidden xl:flex gap-2">
-                <a href="login.html" class="py-[13px] hover:text-orange hover:no-underline">Login / Register</a>
+                <a href="login.html" class="py-[13px] hover:text-orange hover:no-underline cursor-pointer">Login / Register</a>
                 <img src="./images/Search.png" alt="Search Icon">
             </div>
-    
+
         </nav>
 
         <!-- signup section -->
@@ -65,27 +66,24 @@
             <div class="max-w-[45%] mt-16 order-2">
                 <img src="./images/signup.jpg" class="rounded-[80px]">
             </div>
-            <form>
-                <div class=" border-[1px] order-1 mt-20 border-lightgray py-16 rounded-2xl shadow-lg p-9 ">
+            <form >
+                <div class=" border-[1px] order-1 mt-28 border-lightgray py-16 rounded-2xl shadow-lg p-9 ">
                     <h1 class="text-3xl font-semibold">Register</h1>
                     <div class="flex-col ">
-                        <input type="email" placeholder="Email*"  class="w-full my-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
-                        <input type="text" placeholder="Username*"  class="w-full  border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
-                        <input type="password" name="pass1" placeholder="Password*"  class="w-full my-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
+                        <input type="email" placeholder="Email*" name="mail" class="w-full my-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
+                        <!-- <input type="text" placeholder="Username*"  class="w-full  border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full"> -->
+                        <input type="password" name="pass1" placeholder="Password*"  class="w-full mb-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
                         <input type="password" name="pass2" placeholder="Confirm Password*"  class="w-full mb-4 border-[1px] border-lightgray relative z-0 rounded-lg p-2 text-lg max-w-full">
 
-                        <input type="number" placeholder="Phone No.*" class="w-full mb-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
+                        <input type="number" name="phone" placeholder="Phone No.*" class="w-full mb-4 border-[1px] border-lightgray rounded-lg p-2 text-lg max-w-full">
 
                     </div>
-                    <button onclick="validate()" class="rounded-full py-2 text-xl my-4 text-white bg-orange border-none w-full">Register</button>
+                    <input type="submit" onclick="store()" id="submit" value="Register" class="rounded-full py-2 text-xl my-4 text-white bg-orange border-none w-full">
                     <p>Have an account?<a href="login.html" class="text-orange hover:text-red-600"> Log In</a></p>
                     </div>
 
             </form>
         </section>
-
-        
-
 
         <Footer class="bg-footer  mt-14">
             <div class="row max-w-[70%] mx-auto py-20">
@@ -169,37 +167,60 @@
 
     </div>
     <script>
-        function validate(){
-            var username = document.getElementById("username").value;
-            var firstpassword=document.f1.pass1.value;  
-            var secondpassword=document.f1.pass2.value;  
-
+        var accounts=[];
+        function store(){
+            var mail = document.getElementById('mail');
+            var pass1 = document.getElementById('pass1');
+            var pass2 = document.getElementById('pass2');
+            var phone = document.getElementById('phone');
             
-            if(username == null || username == ""){
-                alert("Please enter username");
-                return false;
-            }
-            else if(password == null || password == ""){
-                alert("Please enter password");
-                return false;
-            }
-            else if(password.length<8){
-                alert("Password must be at least 8 characters long.");
-            }
-            if(firstpassword==secondpassword){  
-                return true;  
-            }  
-            else if(firstpassword!=secondpassword){  
-                alert("password must be same!");  
-                return false;  
-            }   
-            else{
-                alert("Signup successful");
-                window.location.href = "index.html";
-                return true;
-            }
-        }
 
+            var lowerCaseLetters = /[a-z]/g;
+            var upperCaseLetters = /[A-Z]/g;
+            var numbers = /[0-9]/g;
+
+            if(mail.value.length == 0){
+                alert('Please fill in email');
+
+            }else if(pass1.value.length == 0 && pass2.value.length == 0){
+                alert('Please fill in password');
+
+            }else if(mail.value.length == 0 && (pass1.value.length == 0 || pass2.value.length == 0)){
+                alert('Please fill in both email and password');
+                
+            }else if(pass1.value.length < 8){
+                alert('Should be more than 8 characters');
+
+            }else if(!pass1.value.match(numbers)){
+                alert('please add 1 number');
+
+            }else if(!pass1.value.match(upperCaseLetters)){
+                alert('please add 1 uppercase letter');
+
+            }else if(!pass1.value.match(lowerCaseLetters)){
+                alert('please add 1 lowercase letter');
+
+            }
+            else if(pass1.value !== pass2.value){
+                alert('Both passwords must be equal');
+            }
+            else if(phone.value.length>10 || phone.value.length<10){
+                alert("Phone number must be at least 10 characters")
+            }
+            else{
+                accounts.push({
+                    'mail': mail.value,
+                    'pass' :pass1.value,
+                    'phone':phone.value,
+                })
+                alert('Your account has been created');
+            }
+            addAccToMemory();
+            }
+
+            const addAccToMemory = () => {
+                localStorage.setItem('account', JSON.stringify(accounts));
+            }
     </script>
     
 </body>

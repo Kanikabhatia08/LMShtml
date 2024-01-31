@@ -41,19 +41,20 @@ listProductHTML.addEventListener('click', (event) => {
     }
 })  
 const addToCart = (product_id) => {
-    let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
+    let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id); //returns index, otherwise -1
     if(cart.length <= 0){
         cart = [{
             product_id: product_id,
             quantity: 1
         }];
-    }else 
-    if(positionThisProductInCart < 0){
+    }
+    else if(positionThisProductInCart < 0){ //if product is not in cart
         cart.push({
             product_id: product_id,
             quantity: 1
         });
-    }else{
+    }
+    else{
         cart[positionThisProductInCart].quantity = cart[positionThisProductInCart].quantity + 1;
     }
     addCartToHTML();
@@ -63,7 +64,7 @@ const addCartToMemory = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 const addCartToHTML = () => {
-    listCartHTML.innerHTML = '';
+    listCartHTML.innerHTML = ''; //to remove the existing content, if not done - repetition occurs
     let totalQuantity = 0;
     if(cart.length > 0){
         cart.forEach(item => {
@@ -72,15 +73,17 @@ const addCartToHTML = () => {
             newItem.classList.add('item');
             newItem.dataset.id = item.product_id;
 
-            let positionProduct = products.findIndex((value) => value.id == item.product_id);
+            let positionProduct = products.findIndex((value) => value.id == item.product_id); 
+            // console.log(item.product_id);
+            // console.log(positionProduct);
             let info = products[positionProduct];
             listCartHTML.appendChild(newItem);
             newItem.innerHTML = `
-            <div class="image">
+                <div class="image">
                     <img src="${info.image}">
                 </div>
                 <div class="name">
-                ${info.name}
+                    ${info.name}
                 </div>
                 <div class="totalPrice">$${info.price * item.quantity}</div>
                 <div class="quantity">
@@ -97,7 +100,7 @@ const addCartToHTML = () => {
 listCartHTML.addEventListener('click', (event) => {
     let positionClick = event.target;
     if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
-        let product_id = positionClick.parentElement.parentElement.dataset.id;
+        let product_id = positionClick.parentElement.parentElement.dataset.id; //quantity -> div 
         let type = 'minus';
         if(positionClick.classList.contains('plus')){
             type = 'plus';
@@ -119,7 +122,7 @@ const changeQuantityCart = (product_id, type) => {
                 if (changeQuantity > 0) {
                     cart[positionItemInCart].quantity = changeQuantity;
                 }else{
-                    cart.splice(positionItemInCart, 1);
+                    cart.splice(positionItemInCart, 1); //removing 1 element at the specific index
                 }
                 break;
         }
@@ -142,3 +145,4 @@ const initApp = () => {  //fetching all the info
     })
 }
 initApp();
+
