@@ -192,14 +192,21 @@
             }else{
                 let stored_users = JSON.parse(localStorage.getItem('users')) //fetching stored users
                 if(stored_users) {
-                    for (let u = 0; u < stored_users.length; u++){ //finding match
-                        if (userName == stored_users[u].mail && userPw == stored_users[u].password) {
+                    // for (let u = 0; u < stored_users.length; u++){ //finding match
+                    //     if (userName == stored_users[u].mail && userPw == stored_users[u].password) {
+                    //         alert('You are logged in ' + userName);
+                    //         return location.replace("./index.html")
+                    //     }
+                    // }
+                    stored_users.forEach(users=>{  //for each user
+                        if(userName == users.mail && userPw == users.password){
                             alert('You are logged in ' + userName);
-                            return location.replace("./index.html")
-                        }
-                    }
+                            
+                        }    
+                        console.log("users",users);
+                    } )
                 } else {
-                localStorage.setItem('users', '[]');
+                localStorage.setItem('users', '[]'); //
                 }
 
                 return alert('Access denied. Valid username and password is required.');

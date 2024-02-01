@@ -212,6 +212,7 @@
             } 
             else{
                 let stored_users = JSON.parse(localStorage.getItem('users'));
+                console.log(stored_users, "hi", localStorage.getItem('users'))
                 if(stored_users) {
                     stored_users.push({mail: mail.value, password: pass1.value});
                     localStorage.setItem('users', JSON.stringify(stored_users));

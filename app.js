@@ -71,7 +71,7 @@ const addCartToHTML = () => {
             totalQuantity = totalQuantity +  item.quantity;
             let newItem = document.createElement('div');
             newItem.classList.add('item');
-            newItem.dataset.id = item.product_id;
+            newItem.dataset.id = item.product_id;   
 
             let positionProduct = products.findIndex((value) => value.id == item.product_id); 
             // console.log(item.product_id);
